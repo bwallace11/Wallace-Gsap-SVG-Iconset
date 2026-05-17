@@ -1,52 +1,22 @@
 ---
-// empty frontmatter for future use
+// zodiac icon: Gemini
 ---
 
-<!-- Triangle icon from Lucide -->
-
-<svg id="theTriangle"
-xmlns="http://www.w3.org/2000/svg"
-width="24"
-height="24"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
-stroke-linecap="round"
-stroke-linejoin="round"
-class="lucide lucide-triangle-icon lucide-triangle">
-
-    <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
-
-</svg>
-
-<!-- GSAP Scripting -->
-<script>
-    import gsap from 'gsap';
-
-    gsap.from('#theTriangle path', {
-        y: 200,
-        opacity: 0,
-        duration: 0.7,
-        ease: 'power3.out'
-    });
-
-    // Hover animations
-    const triangle = document.querySelector('#theTriangle');
-
-    triangle.addEventListener('mouseenter', () => {
-        gsap.to('#theTriangle path', {
-            y: -4,
-            duration: 0.3,
-            ease: 'power2.out'
-        });
-    });
-
-    triangle.addEventListener('mouseleave', () => {
-        gsap.to('#theTriangle path', {
-            y: 0,
-            duration: 0.3,
-            ease: 'power2.in'
-        });
-    });
-</script>
+<section class="zodiac-card gemini">
+    <svg
+        class="zodiac-icon gemini-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    >
+        <path class="zodiac-line gem-line gem-right" d="M16 4.525v14.948" />
+        <path class="zodiac-line gem-line gem-top" d="M20 3A17 17 0 0 1 4 3" />
+        <path class="zodiac-line gem-line gem-bottom" d="M4 21a17 17 0 0 1 16 0" />
+        <path class="zodiac-line gem-line gem-left" d="M8 4.525v14.948" />
+    </svg>
+    <h2>Gemini</h2>
+</section>

@@ -1,55 +1,22 @@
 ---
-// empty frontmatter for future use
+// zodiac icon: Cancer
 ---
 
-<!-- Diamond icon from Lucide -->
-
-<svg id="theDiamond"
-xmlns="http://www.w3.org/2000/svg"
-width="24"
-height="24"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
-stroke-linecap="round"
-stroke-linejoin="round"
-class="lucide lucide-diamond-icon lucide-diamond">
-
-    <path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41L13.7 2.71a2.41 2.41 0 0 0-3.41 0Z"/>
-
-</svg>
-
-<!-- GSAP Scripting -->
-<script>
-    import gsap from 'gsap';
-
-    gsap.from('#theDiamond path', {
-        rotation: 180,
-        transformOrigin: 'center',
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power2.out'
-    });
-
-    // Hover animations
-    const diamond = document.querySelector('#theDiamond');
-
-    diamond.addEventListener('mouseenter', () => {
-        gsap.to('#theDiamond path', {
-            rotation: 45,
-            transformOrigin: 'center',
-            duration: 0.4,
-            ease: 'power2.out'
-        });
-    });
-
-    diamond.addEventListener('mouseleave', () => {
-        gsap.to('#theDiamond path', {
-            rotation: 0,
-            transformOrigin: 'center',
-            duration: 0.4,
-            ease: 'power2.in'
-        });
-    });
-</script>
+<section class="zodiac-card cancer">
+    <svg
+        class="zodiac-icon cancer-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    >
+        <path class="zodiac-line cancer-line cancer-top-curve" d="M21 14.5A9 6.5 0 0 1 5.5 19" />
+        <path class="zodiac-line cancer-line cancer-bottom-curve" d="M3 9.5A9 6.5 0 0 1 18.5 5" />
+        <circle class="zodiac-line cancer-line cancer-right-circle" cx="17.5" cy="14.5" r="3.5" />
+        <circle class="zodiac-line cancer-line cancer-left-circle" cx="6.5" cy="9.5" r="3.5" />
+    </svg>
+    <h2>Cancer</h2>
+</section>

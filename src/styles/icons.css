@@ -1,26 +1,204 @@
-/* Layout */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap");
+
+@font-face {
+    font-family: "Marcellus";
+    src: url("../pages/font/Marcellus-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --sky-1: #0b1b2a;
+    --sky-2: #05070d;
+    --card-bg: rgba(255, 255, 255, 0.08);
+    --card-border: rgba(255, 255, 255, 0.18);
+    --text: #f7f9ff;
+}
+
+* {
+    box-sizing: border-box;
+}
 
 body {
     margin: 0;
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f8f8f8;
-    color: #333;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(circle at top, var(--sky-1), var(--sky-2) 65%);
+    color: var(--text);
+    font-family: "Space Grotesk", "Avenir", "Trebuchet MS", sans-serif;
+    overflow-x: hidden;
+    position: relative;
+    isolation: isolate;
 }
 
-.icon-grid {
-    display: flex;
-    gap: 3rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+.star-field {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
 }
 
-/* Icon sizing */
+.star {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background: #ffffff;
+    opacity: 0.8;
+    animation: twinkle var(--twinkle-duration) ease-in-out infinite;
+    animation-delay: var(--twinkle-delay);
+}
 
-.lucide {
-    width: 100px;
-    height: 100px;
+
+.zodiac-wrap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    width: min(1100px, 92vw);
+    padding: 40px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.page-title {
+    margin: 24px 0 8px;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--text);
+    font-family: "Marcellus", "Times New Roman", serif;
+    z-index: 1;
+}
+
+.zodiac-card {
+    position: relative;
+    min-height: 240px;
+    padding: 28px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    text-align: center;
+    border-radius: 28px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    overflow: hidden;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .zodiac-card {
+        background: rgba(8, 10, 16, 0.75);
+        border-color: rgba(255, 255, 255, 0.12);
+    }
+}
+
+
+.zodiac-icon {
+    width: 86px;
+    height: 86px;
+    display: block;
+    position: relative;
+    z-index: 2;
+    overflow: visible;
+    transform-origin: center center;
+}
+
+.zodiac-line {
+    fill: none;
+}
+
+.zodiac-card h2 {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.aries {
+    color: #E63946;
+}
+
+.taurus {
+    color: #6B8E23;
+}
+
+.gemini {
+    color: #FFD166;
+}
+
+.cancer {
+    color: #A8DADC;
+}
+
+.leo {
+    color: #F4A261;
+}
+
+.virgo {
+    color: #9CAF88;
+}
+
+.libra {
+    color: #F7A8B8;
+}
+
+.scorpio {
+    color: #7A2434;
+}
+
+.sagittarius {
+    color: #8A6AB6;
+}
+
+.capricorn {
+    color: #6A5643;
+}
+
+.aquarius {
+    color: #30A4FD;
+}
+
+.pisces {
+    color: #B8A1FF;
+}
+
+@keyframes twinkle {
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(0.85);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+
+@media (max-width: 900px) {
+    .zodiac-wrap {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .zodiac-wrap {
+        grid-template-columns: 1fr;
+        padding: 32px 0 40px;
+    }
 }

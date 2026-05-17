@@ -1,10 +1,17 @@
 ---
 // server side code at build time
-import Square from './components/icon1.astro'
-import Circle from './components/icon2.astro'
-import Triangle from './components/icon3.astro'
-import Diamond from './components/icon4.astro'
-import Hexagon from './components/icon5.astro'
+import Aries from './components/icon1.astro'
+import Taurus from './components/icon2.astro'
+import Gemini from './components/icon3.astro'
+import Cancer from './components/icon4.astro'
+import Leo from './components/icon5.astro'
+import Virgo from './components/icon6.astro'
+import Libra from './components/icon7.astro'
+import Scorpio from './components/icon8.astro'
+import Sagittarius from './components/icon9.astro'
+import Capricorn from './components/icon10.astro'
+import Aquarius from './components/icon11.astro'
+import Pisces from './components/icon12.astro'
 
 import '../styles/icons.css'
 ---
@@ -15,18 +22,552 @@ import '../styles/icons.css'
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Animated SVG Icon Set</title>
+		<title>Zodiac Signs</title>
 	</head>
 	<body>
 
-		<!-- Load icons as separate components -->
-		<div class="icon-grid">
-			<Square />
-			<Circle />
-			<Triangle />
-			<Diamond />
-			<Hexagon />
-		</div>
+			<div class="star-field" aria-hidden="true">
+				<span class="star" style="--x: 6%; --y: 12%; --size: 2px; --twinkle-duration: 3.5s; --twinkle-delay: -1s;"></span>
+				<span class="star" style="--x: 14%; --y: 38%; --size: 1px; --twinkle-duration: 2.9s; --twinkle-delay: -2s;"></span>
+				<span class="star" style="--x: 22%; --y: 18%; --size: 2px; --twinkle-duration: 4.2s; --twinkle-delay: -0.6s;"></span>
+				<span class="star" style="--x: 30%; --y: 62%; --size: 3px; --twinkle-duration: 3.8s; --twinkle-delay: -1.4s;"></span>
+				<span class="star" style="--x: 38%; --y: 28%; --size: 1px; --twinkle-duration: 2.6s; --twinkle-delay: -0.2s;"></span>
+				<span class="star" style="--x: 44%; --y: 10%; --size: 2px; --twinkle-duration: 4.6s; --twinkle-delay: -1.8s;"></span>
+				<span class="star" style="--x: 52%; --y: 44%; --size: 1px; --twinkle-duration: 3.1s; --twinkle-delay: -2.4s;"></span>
+				<span class="star" style="--x: 58%; --y: 20%; --size: 2px; --twinkle-duration: 3.7s; --twinkle-delay: -0.9s;"></span>
+				<span class="star" style="--x: 64%; --y: 70%; --size: 2px; --twinkle-duration: 5s; --twinkle-delay: -2.1s;"></span>
+				<span class="star" style="--x: 72%; --y: 36%; --size: 3px; --twinkle-duration: 4.1s; --twinkle-delay: -1.2s;"></span>
+				<span class="star" style="--x: 78%; --y: 16%; --size: 1px; --twinkle-duration: 2.7s; --twinkle-delay: -0.5s;"></span>
+				<span class="star" style="--x: 84%; --y: 58%; --size: 2px; --twinkle-duration: 3.4s; --twinkle-delay: -1.6s;"></span>
+				<span class="star" style="--x: 90%; --y: 24%; --size: 1px; --twinkle-duration: 2.8s; --twinkle-delay: -2.2s;"></span>
+				<span class="star" style="--x: 10%; --y: 78%; --size: 2px; --twinkle-duration: 3.3s; --twinkle-delay: -1.9s;"></span>
+				<span class="star" style="--x: 18%; --y: 86%; --size: 1px; --twinkle-duration: 4.4s; --twinkle-delay: -0.7s;"></span>
+				<span class="star" style="--x: 26%; --y: 52%; --size: 2px; --twinkle-duration: 3.9s; --twinkle-delay: -2.6s;"></span>
+				<span class="star" style="--x: 34%; --y: 74%; --size: 1px; --twinkle-duration: 2.5s; --twinkle-delay: -1.1s;"></span>
+				<span class="star" style="--x: 46%; --y: 88%; --size: 2px; --twinkle-duration: 4.7s; --twinkle-delay: -0.3s;"></span>
+				<span class="star" style="--x: 54%; --y: 12%; --size: 1px; --twinkle-duration: 2.4s; --twinkle-delay: -2.7s;"></span>
+				<span class="star" style="--x: 62%; --y: 82%; --size: 2px; --twinkle-duration: 3.6s; --twinkle-delay: -1.3s;"></span>
+				<span class="star" style="--x: 70%; --y: 92%; --size: 1px; --twinkle-duration: 4.3s; --twinkle-delay: -0.8s;"></span>
+				<span class="star" style="--x: 80%; --y: 76%; --size: 2px; --twinkle-duration: 3.2s; --twinkle-delay: -1.7s;"></span>
+				<span class="star" style="--x: 88%; --y: 86%; --size: 1px; --twinkle-duration: 2.9s; --twinkle-delay: -2.3s;"></span>
+			</div>
+			<h1 class="page-title">Zodiac Signs</h1>
+			<main class="zodiac-wrap">
+				<Aries />
+				<Taurus />
+				<Gemini />
+				<Cancer />
+				<Leo />
+				<Virgo />
+				<Libra />
+				<Scorpio />
+				<Sagittarius />
+				<Capricorn />
+				<Aquarius />
+				<Pisces />
+			</main>
+
+			<script>
+				import gsap from 'gsap';
+
+				const startAnimations = () => {
+					function prepDraw(selector = '') {
+						const lines = document.querySelectorAll(selector);
+
+						lines.forEach((line) => {
+							if (!(line instanceof SVGPathElement)) {
+								return;
+							}
+
+							const length = line.getTotalLength();
+							line.style.strokeDasharray = `${length}`;
+							line.style.strokeDashoffset = `${length}`;
+							line.style.opacity = '0';
+						});
+					}
+
+					function resetDraw(selector = '') {
+						gsap.set(selector, {
+							strokeDashoffset: (i, target) => target.getTotalLength(),
+							opacity: 0
+						});
+					}
+
+					/** @param {number} [duration=0.7] */
+					function drawLine(duration = 0.7) {
+						return {
+							opacity: 1,
+							strokeDashoffset: 0,
+							duration: duration,
+							ease: 'power2.out'
+						};
+					}
+
+					prepDraw('.zodiac-line');
+
+					gsap.from('.zodiac-card', {
+						opacity: 0,
+						y: 40,
+						scale: 0.9,
+						duration: 0.8,
+						stagger: 0.08,
+						ease: 'back.out(1.7)'
+					});
+
+					const ariesTL = gsap.timeline({
+						repeat: -1,
+						repeatDelay: 0.9
+					});
+
+					ariesTL
+						.set('.aries-icon', {
+							x: 0,
+							y: 0,
+							scale: 1,
+							rotation: 0
+						})
+						.call(() => resetDraw('.aries-line'))
+						.to('.aries-left-curl', drawLine(0.7), 0)
+						.to('.aries-right-curl', drawLine(0.7), 0)
+						.to('.aries-stem', drawLine(0.45), '-=0.1')
+						.to('.aries-icon', {
+							scale: 1.65,
+							y: -10,
+							duration: 0.18,
+							ease: 'power4.in'
+						})
+						.to('.aries-icon', {
+							scale: 0.92,
+							y: 2,
+							duration: 0.12,
+							ease: 'power2.out'
+						})
+						.to('.aries-icon', {
+							scale: 1,
+							y: 0,
+							duration: 0.5,
+							ease: 'elastic.out(1, 0.35)'
+						});
+
+					const taurusTL = gsap.timeline({
+						repeat: -1,
+						repeatDelay: 0.9
+					});
+
+					taurusTL
+						.set('.taurus-icon', {
+							x: 0,
+							y: 0,
+							scale: 1,
+							rotation: 0
+						})
+						.call(() => resetDraw('.taurus-line'))
+						.to('.taurus-circle', drawLine(0.75))
+						.to('.taurus-horns', drawLine(0.45), '-=0.15')
+						.to('.taurus-icon', {
+							y: 6,
+							scaleY: 0.95,
+							duration: 0.12,
+							ease: 'power2.in'
+						})
+						.to('.taurus-icon', {
+							x: 18,
+							y: -2,
+							scale: 1.14,
+							duration: 0.2,
+							ease: 'power3.in'
+						})
+						.to('.taurus-icon', {
+							x: 0,
+							y: 0,
+							scale: 1,
+							scaleY: 1,
+							duration: 0.65,
+							ease: 'elastic.out(1, 0.35)'
+						});
+
+					const geminiTL = gsap.timeline({
+						repeat: -1,
+						repeatDelay: 0.9
+					});
+
+					geminiTL
+						.set('.gemini-icon', {
+							x: 0,
+							y: 0,
+							scale: 1,
+							rotation: 0
+						})
+						.set('.gem-left, .gem-right', {
+							x: 0,
+							y: 0
+						})
+						.call(() => resetDraw('.gem-line'))
+						.to('.gem-top', drawLine(0.55))
+						.to('.gem-bottom', drawLine(0.55), '-=0.25')
+						.to('.gem-left', drawLine(0.45), '-=0.15')
+						.to('.gem-right', drawLine(0.45), '<')
+						.to('.gem-left', {
+							x: -3,
+							y: -4,
+							duration: 0.22,
+							ease: 'sine.inOut'
+						})
+						.to('.gem-right', {
+							x: 3,
+							y: 4,
+							duration: 0.22,
+							ease: 'sine.inOut'
+						}, '<')
+						.to('.gem-left', {
+							x: 2,
+							y: 4,
+							duration: 0.22,
+							ease: 'sine.inOut'
+						})
+						.to('.gem-right', {
+							x: -2,
+							y: -4,
+							duration: 0.22,
+							ease: 'sine.inOut'
+						}, '<')
+						.to('.gem-left, .gem-right', {
+							x: 0,
+							y: 0,
+							duration: 0.4,
+							ease: 'elastic.out(1, 0.4)'
+						});
+
+					const cancerTL = gsap.timeline({
+						repeat: -1,
+						repeatDelay: 0.9
+					});
+
+					cancerTL
+						.set('.cancer-icon', {
+							x: 0,
+							rotation: 0,
+							scale: 1
+						})
+						.call(() => resetDraw('.cancer-line'))
+						.to('.cancer-top-curve', drawLine(0.75), 0)
+						.to('.cancer-bottom-curve', drawLine(0.75), 0)
+						.to('.cancer-right-circle', drawLine(0.65), '-=0.25')
+						.to('.cancer-left-circle', drawLine(0.65), '<')
+						.to('.cancer-icon', {
+							x: 60,
+							rotation: 360,
+							duration: 1,
+							ease: 'power2.inOut'
+						})
+						.to('.cancer-icon', {
+							x: 0,
+							rotation: 0,
+							duration: 1,
+							ease: 'power2.inOut'
+						});
+
+					const leoTL = gsap.timeline({
+						repeat: -1,
+						repeatDelay: 0.9
+					});
+
+					leoTL
+						.set('.leo-icon', {
+							scale: 1,
+							rotation: 0,
+							x: 0,
+							y: 0
+						})
+						.call(() => resetDraw('.leo-line'))
+						.to('.leo-main-line', drawLine(1))
+						.to('.leo-circle', drawLine(0.65), '-=0.25')
+						.to('.leo-icon', {
+							scale: 1.35,
+							rotation: 10,
+							duration: 0.35,
+							ease: 'power2.out'
+						})
+						.to('.leo-icon', {
+							scale: 1,
+							rotation: 0,
+							duration: 0.65,
+							ease: 'elastic.out(1, 0.35)'
+						});
+
+					const virgoTL = gsap.timeline({
+						repeat: -1,
+						repeatDelay: 0.9
+					});
+
+					virgoTL
+						.set('.virgo-icon', {
+							x: 0,
+							y: 0,
+							rotation: 0,
+							scale: 1
+						})
+						.call(() => resetDraw('.virgo-line'))
+						.to('.virgo-left', drawLine(0.45))
+						.to('.virgo-middle', drawLine(0.55), '-=0.2')
+						.to('.virgo-main-right', drawLine(0.7), '-=0.1')
+						.to('.virgo-tail', drawLine(0.55), '-=0.25')
+						.to('.virgo-icon', {
+							y: -4,
+							x: 6,
+							duration: 0.25,
+							ease: 'power2.out'
+						})
+						.to('.virgo-icon', {
+							x: 0,
+							y: 0,
+							duration: 0.4,
+							ease: 'power2.inOut'
+						});
+
+					const libraTL = gsap.timeline({
+						repeat: -1,
+						repeatDelay: 0.9
+					});
+
+					libraTL
+						.set('.libra-icon', {
+							rotation: 0,
+							scale: 1,
+							transformOrigin: 'center bottom'
+						})
+						.call(() => resetDraw('.libra-line'))
+						.to('.libra-base', drawLine(0.45))
+						.to('.libra-arch', drawLine(0.85), '-=0.1')
+						.to('.libra-icon', {
+							rotation: -8,
+							duration: 0.3,
+							ease: 'sine.inOut'
+						})
+						.to('.libra-icon', {
+							rotation: 8,
+							duration: 0.35,
+							ease: 'sine.inOut'
+						})
+						.to('.libra-icon', {
+							rotation: -4,
+							duration: 0.25,
+							ease: 'sine.inOut'
+						})
+						.to('.libra-icon', {
+							rotation: 0,
+							duration: 0.45,
+							ease: 'elastic.out(1, 0.35)'
+						});
+
+					const scorpioTL = gsap.timeline({
+						repeat: -1,
+						repeatDelay: 0.9
+					});
+
+					scorpioTL
+						.set('.scorpio-icon', {
+							x: 0,
+							y: 0,
+							rotation: 0,
+							scale: 1
+						})
+						.set('.scorpio-tail-group', {
+							x: 0,
+							y: 0
+						})
+						.call(() => resetDraw('.scorpio-line'))
+						.to('.scorpio-left', drawLine(0.45))
+						.to('.scorpio-hook', drawLine(0.35), '-=0.15')
+						.to('.scorpio-main', drawLine(0.8), '-=0.05')
+						.to('.scorpio-arrow', drawLine(0.35), '-=0.2')
+						.to('.scorpio-tail-group', {
+							x: 6,
+							y: -4,
+							duration: 0.16,
+							ease: 'power3.out'
+						})
+						.to('.scorpio-tail-group', {
+							x: 0,
+							y: 0,
+							duration: 0.35,
+							ease: 'elastic.out(1, 0.35)'
+						});
+
+					const sagTL = gsap.timeline({
+						repeat: -1,
+						repeatDelay: 0.9
+					});
+
+					sagTL
+						.set('.sagittarius-icon', {
+							x: 0,
+							y: 0,
+							scale: 1,
+							rotation: 0
+						})
+						.call(() => resetDraw('.sag-line'))
+						.to('.sag-head', drawLine(0.45))
+						.to('.sag-main', drawLine(0.65), '-=0.1')
+						.to('.sag-cross', drawLine(0.35), '-=0.15')
+						.to('.sagittarius-icon', {
+							x: -8,
+							y: 8,
+							scale: 0.95,
+							duration: 0.2,
+							ease: 'power2.inOut'
+						})
+						.to('.sagittarius-icon', {
+							x: 22,
+							y: -22,
+							scale: 1.15,
+							duration: 0.22,
+							ease: 'power3.in'
+						})
+						.to('.sagittarius-icon', {
+							x: 0,
+							y: 0,
+							scale: 1,
+							duration: 0.65,
+							ease: 'elastic.out(1, 0.35)'
+						});
+
+					const capricornTL = gsap.timeline({
+						repeat: -1,
+						repeatDelay: 0.9
+					});
+
+					capricornTL
+						.set('.capricorn-icon', {
+							x: 0,
+							y: 0,
+							scale: 1,
+							rotation: 0
+						})
+						.call(() => resetDraw('.cap-line'))
+						.to('.cap-main', drawLine(0.8))
+						.to('.cap-left', drawLine(0.6), '-=0.35')
+						.to('.cap-circle', drawLine(0.5), '-=0.2')
+						.to('.capricorn-icon', {
+							x: 10,
+							y: -10,
+							duration: 0.28,
+							ease: 'power2.out'
+						})
+						.to('.capricorn-icon', {
+							x: 20,
+							y: -20,
+							duration: 0.28,
+							ease: 'power2.out'
+						})
+						.to('.capricorn-icon', {
+							x: 30,
+							y: -30,
+							scale: 1.05,
+							duration: 0.28,
+							ease: 'power2.out'
+						})
+						.to('.capricorn-icon', {
+							x: 0,
+							y: 0,
+							scale: 1,
+							duration: 0.7,
+							ease: 'elastic.out(1, 0.35)'
+						});
+
+					const aquaTL = gsap.timeline({
+						repeat: -1,
+						repeatDelay: 0.9
+					});
+
+					aquaTL
+						.set('.wave-top-group', {
+							x: 0,
+							y: 0
+						})
+						.set('.wave-bottom-group', {
+							x: 0,
+							y: 0
+						})
+						.call(() => resetDraw('.aqua-line'))
+						.to('.aqua-top', drawLine(0.85))
+						.to('.aqua-bottom', drawLine(0.85), '-=0.45')
+						.to('.wave-top-group', {
+							x: 4,
+							y: -2,
+							duration: 0.35,
+							ease: 'sine.inOut'
+						})
+						.to('.wave-bottom-group', {
+							x: -4,
+							y: 2,
+							duration: 0.35,
+							ease: 'sine.inOut'
+						}, '<')
+						.to('.wave-top-group', {
+							x: -4,
+							y: 2,
+							duration: 0.35,
+							ease: 'sine.inOut'
+						})
+						.to('.wave-bottom-group', {
+							x: 4,
+							y: -2,
+							duration: 0.35,
+							ease: 'sine.inOut'
+						}, '<')
+						.to('.wave-top-group, .wave-bottom-group', {
+							x: 0,
+							y: 0,
+							duration: 0.4,
+							ease: 'elastic.out(1, 0.4)'
+						});
+
+					const piscesTL = gsap.timeline({
+						repeat: -1,
+						repeatDelay: 0.9
+					});
+
+					piscesTL
+						.set('.pisces-icon', {
+							x: 0,
+							y: 0,
+							rotation: 0,
+							scale: 1
+						})
+						.call(() => resetDraw('.pisces-line'))
+						.to('.pisces-left', drawLine(0.65), 0)
+						.to('.pisces-right', drawLine(0.65), 0)
+						.to('.pisces-middle', drawLine(0.45), '-=0.2')
+						.to('.pisces-icon', {
+							x: 16,
+							y: -4,
+							rotation: 6,
+							duration: 0.45,
+							ease: 'sine.inOut'
+						})
+						.to('.pisces-icon', {
+							x: -10,
+							y: 4,
+							rotation: -4,
+							duration: 0.45,
+							ease: 'sine.inOut'
+						})
+						.to('.pisces-icon', {
+							x: 0,
+							y: 0,
+							rotation: 0,
+							duration: 0.45,
+							ease: 'sine.inOut'
+						});
+				};
+
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', startAnimations);
+				} else {
+					startAnimations();
+				}
+			</script>
 
 	</body>
 </html>
